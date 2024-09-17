@@ -1,0 +1,31 @@
+body
+{
+    background-color:aqua;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.allWrapper
+{
+    align-items:center;
+    display: flex;
+    flex-direction:column;
+}
+
+.submitWrapper
+{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    gap:10px
+}
+.submitButton
+{
+    width:60px;
+    height: 30px;
+}
+.textField
+{
+    height: 24px;
+}
