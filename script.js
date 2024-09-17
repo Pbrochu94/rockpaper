@@ -1,7 +1,7 @@
 let userInput = getInput()
-console.log(`Users choice is ${userInput}`)
+
 let AiInput = getAiInput()
-console.log(`Ai chose ${AiInput}`)
+
 
 if(userWin(userInput,AiInput))
 {
@@ -26,7 +26,6 @@ function getAiInput()
 {
     let AiChoice;
     let odds = Math.floor(Math.random()*10)
-    console.log(odds)
     if(odds<=3)
     {
         AiChoice= "ROCK"
