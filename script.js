@@ -16,7 +16,7 @@ function getInput()/*function that checks the users input*/
     let answersArray = ["ROCK","PAPER", "SCISSORS"] 
     do
     {
-        input = prompt("Rock, Paper or Scissors?").toUpperCase()
+        
     }
     while(!answersArray.includes(input))/*Check if input is either rock,paper and scissors */
     return input
