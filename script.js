@@ -1,8 +1,6 @@
-let userInput = getInput()
+/*let userInput = getInput()*/
 
 let AiInput = getAiInput()
-
-
 if(userWin(userInput,AiInput))
 {
     console.log("User Won")
@@ -10,18 +8,22 @@ if(userWin(userInput,AiInput))
 
 
 
-function getInput()/*function that checks the users input*/
+/*function getInput()/*function that checks the users input
 {
     let input;
     let answersArray = ["ROCK","PAPER", "SCISSORS"] 
     do
     {
-        
+        input = prompt("Rock, Paper or Scissors?").toUpperCase()
     }
-    while(!answersArray.includes(input))/*Check if input is either rock,paper and scissors */
+    while(!answersArray.includes(input))/*Check if input is either rock,paper and scissors 
     return input
-}
+}*/
 
+function getUserInput()
+{
+    
+}
 function getAiInput()
 {
     let AiChoice;

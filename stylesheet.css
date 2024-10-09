@@ -29,3 +29,15 @@ body
 {
     height: 24px;
 }
+
+.choiceContainer
+{
+    display:flex;
+    gap:24px;
+}
+.choiceImg
+{
+    height: 200px;
+    width:200px;
+    gap:20px;
+}
