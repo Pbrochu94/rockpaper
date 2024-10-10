@@ -16,7 +16,9 @@ allChoice.forEach(function(e)
     e.addEventListener("click", getUserInput)
 })
 
+/*creation de la div pour le counter*/
 let resultCounterDiv = document.createElement("div")
+body.append(resultCounterDiv)
 
 
 
