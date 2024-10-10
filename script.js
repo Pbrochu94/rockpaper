@@ -71,7 +71,6 @@ function getAiInput()
 
 function checkWinner(userPick)
 {
-    let winner;
     let AiPick = getAiInput()
     console.log(userPick, AiPick)
     if(userPick === "ROCK")
@@ -81,70 +80,74 @@ function checkWinner(userPick)
                 aiScore++
                 AiScoreSelector.innerHTML = aiScore
                 console.log(`${userPick} loses to ${AiPick}`)
-                return
             }
             else if(userPick === AiPick)
             {
                 console.log(`Its a tie!`)
-                return
             }
-            console.log(`${userPick} wins to ${AiPick}`)
-            playerScore++
-            playerScoreSelector.innerHTML = playerScore
+            else
+            {
+                console.log(`${userPick} wins to ${AiPick}`)
+                playerScore++
+                playerScoreSelector.innerHTML = playerScore
+            }
         }
-        if(userPick === "PAPER")
+        else if(userPick === "PAPER")
         {
             if(AiPick === "SCISSORS")
                 {
                     aiScore++
                     AiScoreSelector.innerHTML = aiScore
                     console.log(`${userPick} loses to ${AiPick}`)
-                    return
                 }
             else if(userPick === AiPick)
                 {
                     console.log(`Its a tie!`)
-                    return
                 }
+            else
+            {
                 console.log(`${userPick} wins to ${AiPick}`)
                 playerScore++
-                playerScoreSelector.innerHTML = playerScore
+                playerScoreSelector.innerHTML = playerScore 
+            }
         }
-        if(userPick === "SCISSORS")
+        else if(userPick === "SCISSORS")
         {
             if(AiPick === "ROCK")
                 {
                     aiScore++
                     AiScoreSelector.innerHTML = aiScore
                     console.log(`${userPick} loses to ${AiPick}`)
-                    return
+
                 }
             else if(userPick === AiPick)
                 {
                     console.log(`Its a tie!`)
-                    return
                 }
+            else
+            {
                 playerScore++
                 playerScoreSelector.innerHTML = playerScore
                 console.log(`${userPick} wins to ${AiPick}`)
+            }
+        }
+        if(aiScore === 5||playerScore === 5)
+        {
+            if(aiScore === 5)
+            {
+                printWinner("The enemy")
+            }
+            else if(playerScore === 5)
+            {
+                printWinner("You")
+            }
         }
 }
 
-function reset()
-{
-    if(aiScore === 5)
-    {
-        alert("The enemy won!")
-    }
-    if(playerScore === 5)
-    {
-        alert("You won!")
-    }
-}
-
-function winnerMessage(winner)
+function printWinner(winner)
 {
     let winnerMessageDiv = document.createElement("div")
-    winnerMessageDiv.textContent = winner
+    winnerMessageDiv.textContent = winner+" won!"
     bodySelector.append(winnerMessageDiv)
+    winnerMessageDiv.classList.add("typo")
 }
