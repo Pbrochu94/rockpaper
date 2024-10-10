@@ -94,7 +94,7 @@ function checkWinner(userPick)
         }
         else if(userPick === "PAPER")
         {
-            if(AiPick === "SCISSORS")
+            if(AiPick === "SCISSOR")
                 {
                     aiScore++
                     AiScoreSelector.innerHTML = aiScore
@@ -111,14 +111,13 @@ function checkWinner(userPick)
                 playerScoreSelector.innerHTML = playerScore 
             }
         }
-        else if(userPick === "SCISSORS")
+        else if(userPick === "SCISSOR")
         {
             if(AiPick === "ROCK")
                 {
                     aiScore++
                     AiScoreSelector.innerHTML = aiScore
                     console.log(`${userPick} loses to ${AiPick}`)
-
                 }
             else if(userPick === AiPick)
                 {
@@ -150,4 +149,12 @@ function printWinner(winner)
     winnerMessageDiv.textContent = winner+" won!"
     bodySelector.append(winnerMessageDiv)
     winnerMessageDiv.classList.add("typo")
+    setTimeout(function()
+{
+    winnerMessageDiv.textContent = ''
+    aiScore = 0
+    playerScore = 0
+    playerScoreSelector.innerHTML = 0
+    AiScoreSelector.innerHTML = 0
+}, 800)
 }
