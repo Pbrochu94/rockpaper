@@ -1,7 +1,3 @@
-
-
-let AiInput = getAiInput()
-
 /*Ajoute un event listener pour chaque img avec la classe all choice qui
 ajoute un border quand tu hover par dessus et enleve le border quand tu 
 n'est plus dessus*/
@@ -19,36 +15,31 @@ allChoice.forEach(function(e)
     })
     e.addEventListener("click", getUserInput)
 })
-let rockChoice = document.querySelector(".theRock")
-/*rockChoice.addEventListener("click", getUserInput)*/
+
+let resultCounterDiv = document.createElement("div")
 
 
-
-/*function getInput()/*function that checks the users input
-{
-    let input;
-    let answersArray = ["ROCK","PAPER", "SCISSORS"] 
-    do
-    {
-        input = prompt("Rock, Paper or Scissors?").toUpperCase()
-    }
-    while(!answersArray.includes(input))/*Check if input is either rock,paper and scissors 
-    return input
-}*/
 
 function getUserInput(choice)
 {
+    let userPick;
     if(choice.target.classList.contains("theRock"))
     {
         console.log("You select rock")
+        let userPick = "ROCK"
+        checkWinner(userPick)
     }
     else if(choice.target.classList.contains("paper"))
     {
         console.log("You select paper")
+        let userPick = "PAPER"
+        checkWinner(userPick)
     }
     else if(choice.target.classList.contains("scissor"))
     {
         console.log("You select scissor")
+        let userPick = "SCISSOR"
+        checkWinner(userPick)
     }
 }
 function getAiInput()
@@ -70,48 +61,50 @@ function getAiInput()
     return AiChoice
 }
 
-function userWin(user, ai)
+function checkWinner(userPick)
 {
-    if(user === "ROCK")
-    {
-        if(ai === "PAPER")
+    let AiPick = getAiInput()
+    console.log(userPick, AiPick)
+    if(userPick === "ROCK")
         {
-            console.log(`${user} loses to ${ai}`)
-            return
-        }
-        else if(user === ai)
-        {
-            console.log(`Its a tie!`)
-            return
-        }
-        console.log(`${user} wins to ${ai}`)
-    }
-    if(user === "PAPER")
-    {
-        if(ai === "SCISSORS")
+            if(AiPick === "PAPER")
             {
-                console.log(`${user} loses to ${ai}`)
+                console.log(`${userPick} loses to ${AiPick}`)
                 return
             }
-        else if(user === ai)
+            else if(userPick === AiPick)
             {
                 console.log(`Its a tie!`)
                 return
             }
-            console.log(`${user} wins to ${ai}`)
-    }
-    if(user === "SCISSORS")
-    {
-        if(ai === "ROCK")
-            {
-                console.log(`${user} loses to ${ai}`)
-                return
-            }
-        else if(user === ai)
-            {
-                console.log(`Its a tie!`)
-                return
-            }
-            console.log(`${user} wins to ${ai}`)
-    }
+            console.log(`${userPick} wins to ${AiPick}`)
+        }
+        if(userPick === "PAPER")
+        {
+            if(AiPick === "SCISSORS")
+                {
+                    console.log(`${userPick} loses to ${AiPick}`)
+                    return
+                }
+            else if(userPick === AiPick)
+                {
+                    console.log(`Its a tie!`)
+                    return
+                }
+                console.log(`${userPick} wins to ${AiPick}`)
+        }
+        if(userPick === "SCISSORS")
+        {
+            if(AiPick === "ROCK")
+                {
+                    console.log(`${userPick} loses to ${AiPick}`)
+                    return
+                }
+            else if(userPick === AiPick)
+                {
+                    console.log(`Its a tie!`)
+                    return
+                }
+                console.log(`${userPick} wins to ${AiPick}`)
+        }
 }
