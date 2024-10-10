@@ -1,10 +1,26 @@
-/*let userInput = getInput()*/
+
 
 let AiInput = getAiInput()
-if(userWin(userInput,AiInput))
+
+/*Ajoute un event listener pour chaque img avec la classe all choice qui
+ajoute un border quand tu hover par dessus et enleve le border quand tu 
+n'est plus dessus*/
+let allChoice = document.querySelectorAll(".choiceImg")
+allChoice.forEach(function(e)
 {
-    console.log("User Won")
-}
+    e.addEventListener("mouseover", function(e)
+    {
+        e.target.style.border = "4px solid black"
+    })
+    e.addEventListener("mouseout", function(e)
+    {
+        e.target.style.border = ""
+
+    })
+    e.addEventListener("click", getUserInput)
+})
+let rockChoice = document.querySelector(".theRock")
+/*rockChoice.addEventListener("click", getUserInput)*/
 
 
 
@@ -20,9 +36,20 @@ if(userWin(userInput,AiInput))
     return input
 }*/
 
-function getUserInput()
+function getUserInput(choice)
 {
-    
+    if(choice.target.classList.contains("theRock"))
+    {
+        console.log("You select rock")
+    }
+    else if(choice.target.classList.contains("paper"))
+    {
+        console.log("You select paper")
+    }
+    else if(choice.target.classList.contains("scissor"))
+    {
+        console.log("You select scissor")
+    }
 }
 function getAiInput()
 {
