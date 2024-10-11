@@ -18,10 +18,11 @@ allChoice.forEach(function(e)
     e.addEventListener("click", getUserInput)
 })
 
-/*creation de la div pour le counter*/
+/*selection des querySelector*/
 let AiScoreSelector = document.querySelector(".AiScore")
 let playerScoreSelector = document.querySelector(".playerScore")
 let bodySelector = document.querySelector("body")
+let roundResult = document.querySelector("h3")
 
 
 
@@ -80,16 +81,19 @@ function checkWinner(userPick)
                 aiScore++
                 AiScoreSelector.innerHTML = aiScore
                 console.log(`${userPick} loses to ${AiPick}`)
+                roundResult.textContent = "You selected rock and the enemy selected paper."
             }
             else if(userPick === AiPick)
             {
                 console.log(`Its a tie!`)
+                roundResult.textContent = "You selected rock and the enemy selected rock."
             }
             else
             {
                 console.log(`${userPick} wins to ${AiPick}`)
                 playerScore++
                 playerScoreSelector.innerHTML = playerScore
+                roundResult.textContent = "You selected rock and the enemy selected scissor."
             }
         }
         else if(userPick === "PAPER")
@@ -99,16 +103,19 @@ function checkWinner(userPick)
                     aiScore++
                     AiScoreSelector.innerHTML = aiScore
                     console.log(`${userPick} loses to ${AiPick}`)
+                    roundResult.textContent = "You selected paper and the enemy selected scissor."
                 }
             else if(userPick === AiPick)
                 {
                     console.log(`Its a tie!`)
+                    roundResult.textContent = "You selected paper and the enemy selected paper."
                 }
             else
             {
                 console.log(`${userPick} wins to ${AiPick}`)
                 playerScore++
                 playerScoreSelector.innerHTML = playerScore 
+                roundResult.textContent = "You selected paper and the enemy selected rock."
             }
         }
         else if(userPick === "SCISSOR")
@@ -118,16 +125,19 @@ function checkWinner(userPick)
                     aiScore++
                     AiScoreSelector.innerHTML = aiScore
                     console.log(`${userPick} loses to ${AiPick}`)
+                    roundResult.textContent = "You selected scissor and the enemy selected rock."
                 }
             else if(userPick === AiPick)
                 {
                     console.log(`Its a tie!`)
+                    roundResult.textContent = "You selected scissor and the enemy selected scissor."
                 }
             else
             {
                 playerScore++
                 playerScoreSelector.innerHTML = playerScore
                 console.log(`${userPick} wins to ${AiPick}`)
+                roundResult.textContent = "You selected scissor and the enemy selected paper."
             }
         }
         if(aiScore === 5||playerScore === 5)
@@ -152,6 +162,7 @@ function printWinner(winner)
     setTimeout(function()
 {
     winnerMessageDiv.textContent = ''
+    roundResult.textContent = "New round !"
     aiScore = 0
     playerScore = 0
     playerScoreSelector.innerHTML = 0
